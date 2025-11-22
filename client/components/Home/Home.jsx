@@ -202,6 +202,12 @@ const Home = () => {
       setOtp("completed");
     });
   };
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id.toLowerCase());
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <>
       <Navbar
@@ -360,7 +366,10 @@ const Home = () => {
               <div className={`${styles.cardContainer} ${styles.padBot}`}>
                 {serviceDetails.map((ele) => (
                   <>
-                    <div className={styles.hidden}>
+                    <div
+                      className={styles.hidden}
+                      onClick={() => scrollToSection(ele.name)}
+                    >
                       <img src={`assets/services/${ele.url}`} alt={ele.name} />
                       <h4>{ele.name}</h4>
                     </div>
@@ -395,317 +404,353 @@ const Home = () => {
             </div>
             {Electrician.length !== 0 && (
               <>
-                <div className={styles.service}>
-                  <h1>Electrician</h1>
-                  <div
-                    className={`${styles.cardContainer2} ${styles.preffCont}`}
-                  >
-                    {Electrician?.map((ele) => {
-                      const selfie = ele.urls.find(
-                        (url) => url.fieldName === "live_selfie"
-                      );
-                      return (
-                        <div
-                          className={styles.hidden}
-                          onClick={() => navigate(`/userDetails/${ele._id}`)}
-                        >
-                          <img
-                            src={selfie?.url}
-                            className={styles.prof}
-                            alt=""
-                          />
-                          <h4 className="loc">{ele.details.full_name}</h4>
-                          <h4 className="loc">{ele.details.primary_service}</h4>
-                          <strong className={styles.reviewRating}>
-                            {"★".repeat(Math.floor(ele.avgStar)) +
-                              "☆".repeat(5 - Math.floor(ele.avgStar))}{" "}
-                            {ele.avgStar}
-                          </strong>
-                        </div>
-                      );
-                    })}
+                <section id="electrician">
+                  <div className={styles.service}>
+                    <h1>Electrician</h1>
+                    <div
+                      className={`${styles.cardContainer2} ${styles.preffCont}`}
+                    >
+                      {Electrician?.map((ele) => {
+                        const selfie = ele.urls.find(
+                          (url) => url.fieldName === "live_selfie"
+                        );
+                        return (
+                          <div
+                            className={styles.hidden}
+                            onClick={() => navigate(`/userDetails/${ele._id}`)}
+                          >
+                            <img
+                              src={selfie?.url}
+                              className={styles.prof}
+                              alt=""
+                            />
+                            <h4 className="loc">{ele.details.full_name}</h4>
+                            <h4 className="loc">
+                              {ele.details.primary_service}
+                            </h4>
+                            <strong className={styles.reviewRating}>
+                              {"★".repeat(Math.floor(ele.avgStar)) +
+                                "☆".repeat(5 - Math.floor(ele.avgStar))}{" "}
+                              {ele.avgStar}
+                            </strong>
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
-                </div>
+                </section>
               </>
             )}
             {Carpenter.length !== 0 && (
               <>
-                <div className={styles.service}>
-                  <h1>Carpenter</h1>
-                  <div
-                    className={`${styles.cardContainer2} ${styles.preffCont}`}
-                  >
-                    {Carpenter?.map((ele) => {
-                      const selfie = ele.urls.find(
-                        (url) => url.fieldName === "live_selfie"
-                      );
-                      return (
-                        <div
-                          className={styles.hidden}
-                          onClick={() => navigate(`/userDetails/${ele._id}`)}
-                        >
-                          <img
-                            src={selfie?.url}
-                            className={styles.prof}
-                            alt=""
-                          />
-                          <h4 className="loc">{ele.details.full_name}</h4>
-                          <h4 className="loc">{ele.details.primary_service}</h4>
-                          <strong className={styles.reviewRating}>
-                            {"★".repeat(Math.floor(ele.avgStar)) +
-                              "☆".repeat(5 - Math.floor(ele.avgStar))}{" "}
-                            {ele.avgStar}
-                          </strong>
-                        </div>
-                      );
-                    })}
+                <section id="carpenter">
+                  <div className={styles.service}>
+                    <h1>Carpenter</h1>
+                    <div
+                      className={`${styles.cardContainer2} ${styles.preffCont}`}
+                    >
+                      {Carpenter?.map((ele) => {
+                        const selfie = ele.urls.find(
+                          (url) => url.fieldName === "live_selfie"
+                        );
+                        return (
+                          <div
+                            className={styles.hidden}
+                            onClick={() => navigate(`/userDetails/${ele._id}`)}
+                          >
+                            <img
+                              src={selfie?.url}
+                              className={styles.prof}
+                              alt=""
+                            />
+                            <h4 className="loc">{ele.details.full_name}</h4>
+                            <h4 className="loc">
+                              {ele.details.primary_service}
+                            </h4>
+                            <strong className={styles.reviewRating}>
+                              {"★".repeat(Math.floor(ele.avgStar)) +
+                                "☆".repeat(5 - Math.floor(ele.avgStar))}{" "}
+                              {ele.avgStar}
+                            </strong>
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
-                </div>
+                </section>
               </>
             )}
-            {Education.length !== 0 && (
-              <>
-                <div className={styles.service}>
-                  <h1>Education & Skills</h1>
-                  <div
-                    className={`${styles.cardContainer2} ${styles.preffCont}`}
-                  >
-                    {Education?.map((ele) => {
-                      const selfie = ele.urls.find(
-                        (url) => url.fieldName === "live_selfie"
-                      );
-                      return (
-                        <div
-                          className={styles.hidden}
-                          onClick={() => navigate(`/userDetails/${ele._id}`)}
-                        >
-                          <img
-                            src={selfie?.url}
-                            className={styles.prof}
-                            alt=""
-                          />
-                          <h4 className="loc">{ele.details.full_name}</h4>
-                          <h4 className="loc">{ele.details.primary_service}</h4>
-                          <strong className={styles.reviewRating}>
-                            {"★".repeat(Math.floor(ele.avgStar)) +
-                              "☆".repeat(5 - Math.floor(ele.avgStar))}{" "}
-                            {ele.avgStar}
-                          </strong>
-                        </div>
-                      );
-                    })}
+            <section id="education & skills">
+              {Education.length !== 0 && (
+                <>
+                  <div className={styles.service}>
+                    <h1>Education & Skills</h1>
+                    <div
+                      className={`${styles.cardContainer2} ${styles.preffCont}`}
+                    >
+                      {Education?.map((ele) => {
+                        const selfie = ele.urls.find(
+                          (url) => url.fieldName === "live_selfie"
+                        );
+                        return (
+                          <div
+                            className={styles.hidden}
+                            onClick={() => navigate(`/userDetails/${ele._id}`)}
+                          >
+                            <img
+                              src={selfie?.url}
+                              className={styles.prof}
+                              alt=""
+                            />
+                            <h4 className="loc">{ele.details.full_name}</h4>
+                            <h4 className="loc">
+                              {ele.details.primary_service}
+                            </h4>
+                            <strong className={styles.reviewRating}>
+                              {"★".repeat(Math.floor(ele.avgStar)) +
+                                "☆".repeat(5 - Math.floor(ele.avgStar))}{" "}
+                              {ele.avgStar}
+                            </strong>
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
-                </div>
-              </>
-            )}
+                </>
+              )}
+            </section>
             {Baker.length !== 0 && (
               <>
-                <div className={styles.service}>
-                  <h1>Home Bakers</h1>
-                  <div
-                    className={`${styles.cardContainer2} ${styles.preffCont}`}
-                  >
-                    {Baker?.map((ele) => {
-                      const selfie = ele.urls.find(
-                        (url) => url.fieldName === "live_selfie"
-                      );
-                      return (
-                        <div
-                          className={styles.hidden}
-                          onClick={() => navigate(`/userDetails/${ele._id}`)}
-                        >
-                          <img
-                            src={selfie?.url}
-                            className={styles.prof}
-                            alt=""
-                          />
-                          <h4 className="loc">{ele.details.full_name}</h4>
-                          <h4 className="loc">{ele.details.primary_service}</h4>
-                          <strong className={styles.reviewRating}>
-                            {"★".repeat(Math.floor(ele.avgStar)) +
-                              "☆".repeat(5 - Math.floor(ele.avgStar))}{" "}
-                            {ele.avgStar}
-                          </strong>
-                        </div>
-                      );
-                    })}
+                <section id="home bakers">
+                  <div className={styles.service}>
+                    <h1>Home Bakers</h1>
+                    <div
+                      className={`${styles.cardContainer2} ${styles.preffCont}`}
+                    >
+                      {Baker?.map((ele) => {
+                        const selfie = ele.urls.find(
+                          (url) => url.fieldName === "live_selfie"
+                        );
+                        return (
+                          <div
+                            className={styles.hidden}
+                            onClick={() => navigate(`/userDetails/${ele._id}`)}
+                          >
+                            <img
+                              src={selfie?.url}
+                              className={styles.prof}
+                              alt=""
+                            />
+                            <h4 className="loc">{ele.details.full_name}</h4>
+                            <h4 className="loc">
+                              {ele.details.primary_service}
+                            </h4>
+                            <strong className={styles.reviewRating}>
+                              {"★".repeat(Math.floor(ele.avgStar)) +
+                                "☆".repeat(5 - Math.floor(ele.avgStar))}{" "}
+                              {ele.avgStar}
+                            </strong>
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
-                </div>
+                </section>
               </>
             )}
             {Cleaning.length !== 0 && (
               <>
-                <div className={styles.service}>
-                  <h1>Home Cleaning</h1>
-                  <div
-                    className={`${styles.cardContainer2} ${styles.preffCont}`}
-                  >
-                    {Cleaning?.map((ele) => {
-                      const selfie = ele.urls.find(
-                        (url) => url.fieldName === "live_selfie"
-                      );
-                      return (
-                        <div
-                          className={styles.hidden}
-                          onClick={() => navigate(`/userDetails/${ele._id}`)}
-                        >
-                          <img
-                            src={selfie?.url}
-                            className={styles.prof}
-                            alt=""
-                          />
-                          <h4 className="loc">{ele.details.full_name}</h4>
-                          <h4 className="loc">{ele.details.primary_service}</h4>
-                          <strong className={styles.reviewRating}>
-                            {"★".repeat(Math.floor(ele.avgStar)) +
-                              "☆".repeat(5 - Math.floor(ele.avgStar))}{" "}
-                            {ele.avgStar}
-                          </strong>
-                        </div>
-                      );
-                    })}
+                <section id="home cleaning">
+                  <div className={styles.service}>
+                    <h1>Home Cleaning</h1>
+                    <div
+                      className={`${styles.cardContainer2} ${styles.preffCont}`}
+                    >
+                      {Cleaning?.map((ele) => {
+                        const selfie = ele.urls.find(
+                          (url) => url.fieldName === "live_selfie"
+                        );
+                        return (
+                          <div
+                            className={styles.hidden}
+                            onClick={() => navigate(`/userDetails/${ele._id}`)}
+                          >
+                            <img
+                              src={selfie?.url}
+                              className={styles.prof}
+                              alt=""
+                            />
+                            <h4 className="loc">{ele.details.full_name}</h4>
+                            <h4 className="loc">
+                              {ele.details.primary_service}
+                            </h4>
+                            <strong className={styles.reviewRating}>
+                              {"★".repeat(Math.floor(ele.avgStar)) +
+                                "☆".repeat(5 - Math.floor(ele.avgStar))}{" "}
+                              {ele.avgStar}
+                            </strong>
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
-                </div>
+                </section>
               </>
             )}
             {Tailor.length !== 0 && (
               <>
-                <div className={styles.service}>
-                  <h1>Local Tailor</h1>
-                  <div
-                    className={`${styles.cardContainer2} ${styles.preffCont}`}
-                  >
-                    {Tailor?.map((ele) => {
-                      const selfie = ele.urls.find(
-                        (url) => url.fieldName === "live_selfie"
-                      );
-                      return (
-                        <div
-                          className={styles.hidden}
-                          onClick={() => navigate(`/userDetails/${ele._id}`)}
-                        >
-                          <img
-                            src={selfie?.url}
-                            className={styles.prof}
-                            alt=""
-                          />
-                          <h4 className="loc">{ele.details.full_name}</h4>
-                          <h4 className="loc">{ele.details.primary_service}</h4>
-                          <strong className={styles.reviewRating}>
-                            {"★".repeat(Math.floor(ele.avgStar)) +
-                              "☆".repeat(5 - Math.floor(ele.avgStar))}{" "}
-                            {ele.avgStar}
-                          </strong>
-                        </div>
-                      );
-                    })}
+                <section id="local tailor">
+                  <div className={styles.service}>
+                    <h1>Local Tailor</h1>
+                    <div
+                      className={`${styles.cardContainer2} ${styles.preffCont}`}
+                    >
+                      {Tailor?.map((ele) => {
+                        const selfie = ele.urls.find(
+                          (url) => url.fieldName === "live_selfie"
+                        );
+                        return (
+                          <div
+                            className={styles.hidden}
+                            onClick={() => navigate(`/userDetails/${ele._id}`)}
+                          >
+                            <img
+                              src={selfie?.url}
+                              className={styles.prof}
+                              alt=""
+                            />
+                            <h4 className="loc">{ele.details.full_name}</h4>
+                            <h4 className="loc">
+                              {ele.details.primary_service}
+                            </h4>
+                            <strong className={styles.reviewRating}>
+                              {"★".repeat(Math.floor(ele.avgStar)) +
+                                "☆".repeat(5 - Math.floor(ele.avgStar))}{" "}
+                              {ele.avgStar}
+                            </strong>
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
-                </div>
+                </section>
               </>
             )}
             {Painter.length !== 0 && (
               <>
-                <div className={styles.service}>
-                  <h1>Painter</h1>
-                  <div
-                    className={`${styles.cardContainer2} ${styles.preffCont}`}
-                  >
-                    {Painter?.map((ele) => {
-                      const selfie = ele.urls.find(
-                        (url) => url.fieldName === "live_selfie"
-                      );
-                      return (
-                        <div
-                          className={styles.hidden}
-                          onClick={() => navigate(`/userDetails/${ele._id}`)}
-                        >
-                          <img
-                            src={selfie?.url}
-                            className={styles.prof}
-                            alt=""
-                          />
-                          <h4 className="loc">{ele.details.full_name}</h4>
-                          <h4 className="loc">{ele.details.primary_service}</h4>
-                          <strong className={styles.reviewRating}>
-                            {"★".repeat(Math.floor(ele.avgStar)) +
-                              "☆".repeat(5 - Math.floor(ele.avgStar))}{" "}
-                            {ele.avgStar}
-                          </strong>
-                        </div>
-                      );
-                    })}
+                <section id="painter">
+                  <div className={styles.service}>
+                    <h1>Painter</h1>
+                    <div
+                      className={`${styles.cardContainer2} ${styles.preffCont}`}
+                    >
+                      {Painter?.map((ele) => {
+                        const selfie = ele.urls.find(
+                          (url) => url.fieldName === "live_selfie"
+                        );
+                        return (
+                          <div
+                            className={styles.hidden}
+                            onClick={() => navigate(`/userDetails/${ele._id}`)}
+                          >
+                            <img
+                              src={selfie?.url}
+                              className={styles.prof}
+                              alt=""
+                            />
+                            <h4 className="loc">{ele.details.full_name}</h4>
+                            <h4 className="loc">
+                              {ele.details.primary_service}
+                            </h4>
+                            <strong className={styles.reviewRating}>
+                              {"★".repeat(Math.floor(ele.avgStar)) +
+                                "☆".repeat(5 - Math.floor(ele.avgStar))}{" "}
+                              {ele.avgStar}
+                            </strong>
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
-                </div>
+                </section>
               </>
             )}
             {Plumber.length !== 0 && (
               <>
-                <div className={styles.service}>
-                  <h1>Plumber</h1>
-                  <div
-                    className={`${styles.cardContainer2} ${styles.preffCont}`}
-                  >
-                    {Plumber?.map((ele) => {
-                      const selfie = ele.urls.find(
-                        (url) => url.fieldName === "live_selfie"
-                      );
-                      return (
-                        <div
-                          className={styles.hidden}
-                          onClick={() => navigate(`/userDetails/${ele._id}`)}
-                        >
-                          <img
-                            src={selfie?.url}
-                            className={styles.prof}
-                            alt=""
-                          />
-                          <h4 className="loc">{ele.details.full_name}</h4>
-                          <h4 className="loc">{ele.details.primary_service}</h4>
-                          <strong className={styles.reviewRating}>
-                            {"★".repeat(Math.floor(ele.avgStar)) +
-                              "☆".repeat(5 - Math.floor(ele.avgStar))}{" "}
-                            {ele.avgStar}
-                          </strong>
-                        </div>
-                      );
-                    })}
+                <section id="plumber">
+                  <div className={styles.service}>
+                    <h1>Plumber</h1>
+                    <div
+                      className={`${styles.cardContainer2} ${styles.preffCont}`}
+                    >
+                      {Plumber?.map((ele) => {
+                        const selfie = ele.urls.find(
+                          (url) => url.fieldName === "live_selfie"
+                        );
+                        return (
+                          <div
+                            className={styles.hidden}
+                            onClick={() => navigate(`/userDetails/${ele._id}`)}
+                          >
+                            <img
+                              src={selfie?.url}
+                              className={styles.prof}
+                              alt=""
+                            />
+                            <h4 className="loc">{ele.details.full_name}</h4>
+                            <h4 className="loc">
+                              {ele.details.primary_service}
+                            </h4>
+                            <strong className={styles.reviewRating}>
+                              {"★".repeat(Math.floor(ele.avgStar)) +
+                                "☆".repeat(5 - Math.floor(ele.avgStar))}{" "}
+                              {ele.avgStar}
+                            </strong>
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
-                </div>
+                </section>
               </>
             )}
             {Tiffin.length !== 0 && (
               <>
-                <div className={styles.service}>
-                  <h1>Tiffin Service</h1>
-                  <div
-                    className={`${styles.cardContainer2} ${styles.preffCont}`}
-                  >
-                    {Tiffin?.map((ele) => {
-                      const selfie = ele.urls.find(
-                        (url) => url.fieldName === "live_selfie"
-                      );
-                      return (
-                        <div
-                          className={styles.hidden}
-                          onClick={() => navigate(`/userDetails/${ele._id}`)}
-                        >
-                          <img
-                            src={selfie?.url}
-                            className={styles.prof}
-                            alt=""
-                          />
-                          <h4 className="loc">{ele.details.full_name}</h4>
-                          <h4 className="loc">{ele.details.primary_service}</h4>
-                          <strong className={styles.reviewRating}>
-                            {"★".repeat(Math.floor(ele.avgStar)) +
-                              "☆".repeat(5 - Math.floor(ele.avgStar))}{" "}
-                            {ele.avgStar}
-                          </strong>
-                        </div>
-                      );
-                    })}
+                <section id="Tiffin Service">
+                  <div className={styles.service}>
+                    <h1>Tiffin Service</h1>
+                    <div
+                      className={`${styles.cardContainer2} ${styles.preffCont}`}
+                    >
+                      {Tiffin?.map((ele) => {
+                        const selfie = ele.urls.find(
+                          (url) => url.fieldName === "live_selfie"
+                        );
+                        return (
+                          <div
+                            className={styles.hidden}
+                            onClick={() => navigate(`/userDetails/${ele._id}`)}
+                          >
+                            <img
+                              src={selfie?.url}
+                              className={styles.prof}
+                              alt=""
+                            />
+                            <h4 className="loc">{ele.details.full_name}</h4>
+                            <h4 className="loc">
+                              {ele.details.primary_service}
+                            </h4>
+                            <strong className={styles.reviewRating}>
+                              {"★".repeat(Math.floor(ele.avgStar)) +
+                                "☆".repeat(5 - Math.floor(ele.avgStar))}{" "}
+                              {ele.avgStar}
+                            </strong>
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
-                </div>
+                </section>
               </>
             )}
           </>

@@ -1,0 +1,56 @@
+.OuterSearch {
+  width: 100%;
+  padding: 2rem;
+}
+
+.OuterSearch h2 {
+  margin-bottom: 1.5rem;
+  color: #333;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.outerSearchCard {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;           
+  justify-content: center;
+}
+
+.cardSearch {
+  width: 260px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.cardSearch:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.cardSearch img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.cardSearch h4 {
+  margin: 4px 0;
+  color: #555;
+  font-weight: 500;
+}
+
+.starSearch {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  color: #f5a623;
+}

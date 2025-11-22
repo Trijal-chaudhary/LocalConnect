@@ -139,3 +139,7 @@ exports.postReview = async (req, res, next) => {
   res.status(201).json({ message: "added review" });
 
 }
+exports.postSearch = async (req, res, next) => {
+  console.log(req.body)
+  res.status(201).json({ message: "found" })
+}
