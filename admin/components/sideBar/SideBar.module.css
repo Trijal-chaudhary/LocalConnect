@@ -1,0 +1,144 @@
+.main-content {
+  padding: 2rem;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+.main-content h1 {
+  color: #333;
+}
+
+.main-content p {
+  color: #555;
+  line-height: 1.6;
+}
+.sidebar-toggle-btn:hover {
+  transform: translateY(-2px);
+}
+
+.sidebar-toggle-btn span {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background-color: #333;
+  border-radius: 3px;
+}
+.sidebar-header {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+
+.sidebar-logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  /* Using a green from your previous hero section */
+  color: #4f772d; 
+}
+
+.sidebar-close-btn {
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #888;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+}
+
+
+
+.sidebarLocation:hover {
+  background-color: #f1f3f5;
+}
+
+.sidebarLocation svg {
+  width: 20px;
+  height: 20px;
+  fill: #4f772d;
+  flex-shrink: 0;
+}
+
+/* Navigation Lists */
+.sidebarNavMain,
+.sidebar-nav-secondary {
+  list-style: none;
+  margin: 0;
+  padding: 0 1rem;
+}
+
+.sidebarNavMain li,
+.sidebar-nav-secondary li {
+  padding: 1rem 0.5rem;
+  color: #454545;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sidebarNavMain li:hover,
+.sidebar-nav-secondary li:hover {
+  background-color: #f1f3f5;
+  color: #4f772d;
+}
+
+.sidebar-nav-secondary {
+  border-top: 1px solid #eee;
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+
+/* Action Buttons at the bottom */
+.sidebarActions {
+  margin-top: auto; /* Pushes this block to the bottom */
+  padding: 1.5rem;
+  display: grid;
+  gap: 12px;
+  border-top: 1px solid #eee;
+}
+
+.sidebarBtn {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.providerBtn {
+  background-color: #4f772d;
+  color: white;
+}
+.providerBtn:hover {
+  background-color: #31572c;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(79, 119, 45, 0.3);
+}
+
+.loginBtn {
+  background-color: #f1f3f5;
+  color: #333;
+}
+.loginBtn:hover {
+  background-color: #e9ecef;
+}
+
+.logoutBtn {
+  background-color: transparent;
+  color: white; 
+   background-color: #4f772d;
+
+
+  border: 1px solid #f1f3f5;
+}
+.logoutBtn:hover {
+  background-color: #fdf2f2;
+  border-color: #f8d7da;
+  background-color: #31572c;
+
+}

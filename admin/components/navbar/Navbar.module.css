@@ -1,0 +1,199 @@
+/* --- Navbar.module.css --- */
+
+/* Main navbar container */
+*{
+  border: none;
+  margin: 0px;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  font-family: 'Inter', sans-serif;
+  position: fixed;
+  top: 0;
+  /* height: 5vh; */
+  z-index: 100;
+  width: 100%;
+  box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+/* Logo styling */
+.logo {
+  height: 30px; /* Adjust as needed */
+  width: auto;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.profileAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #d4af37;
+  cursor: pointer;
+
+}
+/* Location selector */
+.locationSelector {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 500;
+  color: #333;
+  gap: 8px; 
+  margin-left: 2rem;
+  margin-right: auto; 
+}
+.sideBar{
+  height: 90vh;
+  width: 280px;
+  margin-top: 71px;
+  position: fixed;
+  z-index: 200;
+  background-color: #ffffff;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.08);
+  
+  transition: transform 0.3s ease-in-out;
+  
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; 
+}
+.open{
+  transform: translateX(0%);
+}
+.close{
+  transform: translateX(-100%);
+}
+
+/* Navigation links list */
+.navList {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem; /* Spacing between nav items */
+  margin-right: 10%;
+}
+
+/* Individual nav list item */
+.navList li {
+  cursor: pointer;
+  font-weight: 500;
+  color: #555;
+  transition: color 0.2s ease-in-out;
+}
+
+li:hover {
+  color: #4f772d; /* A primary color for hover */
+  text-decoration: underline;
+}
+.ham:hover{
+  fill: #31572c;
+}
+
+/* Container for the login/signup buttons */
+.actionsContainer {
+  /* width: 20%; */
+  display: flex;
+  align-items: center;
+  gap: 1.75rem; /* Space between buttons */
+  margin-left: 2rem;
+}
+
+/* Base button style (optional, but good practice) */
+button {
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s ease-in-out;
+  border: none;
+}
+svg{
+  height: 30px;
+  /* fill: #31572c; */
+  cursor: pointer;
+}
+
+/* Login button (outline style) */
+.loginButton {
+  /* composes: btn; */
+  background-color: #ffffff;
+  border: 2px solid #ddd;
+  color: #333;
+}
+
+.loginButton:hover {
+  border-color: #31572c;
+  color: #31572c;
+  background-color: #f0f7ff;
+}
+
+/* SignUp button (solid style) */
+.signupButton {
+  /* composes: btn; */
+  background-color: #4f772d;
+  color: #ffffff;
+  border: 2px solid #4f772d;
+}
+
+.signupButton:hover {
+  background-color: #31572c;
+  border-color: #31572c;
+}
+
+@media (max-width: 950px) {
+
+  .navList {
+    display: none;
+  }
+}
+
+/* Small screens (mobile) */
+@media (max-width: 600px) {
+  .navbar {
+    padding: 5px;
+  }
+  .locationSelector{
+    font-size: 10px;
+    width: 120px;
+  }
+  
+  .loc{
+    height: 15px;
+    margin-left: -15px;
+  }
+  .ham{
+    height: 20px;
+  }
+  .logo{
+    height: 15px;
+    margin-left: 10px;
+  }
+  .navList {
+    display: none;
+  }
+  .signupButton{
+    display: none;
+  }
+  .loginButton{
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.7rem;
+  padding: 0.4rem 1rem;
+
+  }
+}

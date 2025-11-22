@@ -1,0 +1,124 @@
+
+/* .outerNav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-top: 1rem;
+  background-color: #ffffff;
+  position: absolute;
+} */
+
+
+.sidebarNavMain {
+  list-style: none;
+  margin: 0;
+  padding: 0 1.2rem;
+}
+
+.sidebarNavMain li {
+  padding: 1rem 0.8rem;
+  margin-bottom: 6px;
+  color: #444;
+  font-weight: 500;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.sidebarNavMain li:hover {
+  background-color: #eef2ee;
+  color: #31572c;
+}
+
+.sidebarActions {
+  margin-top: auto;
+  padding: 1.5rem 1.2rem;
+  display: grid;
+  gap: 14px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.sidebarBtn {
+  padding: 0.9rem 1rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* Provider Button */
+.providerBtn {
+  background-color: #4f772d;
+  color: #ffffff;
+  border: 2px solid #4f772d;
+}
+
+.providerBtn:hover {
+  background-color: #31572c;
+  border-color: #31572c;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(49, 87, 44, 0.3);
+}
+
+/* Login Button */
+.loginBtn {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.loginBtn:hover {
+  background-color: #e9ecef;
+  transform: translateY(-2px);
+}
+
+/* Signup Button */
+.logoutBtn {
+  background-color: #4f772d;
+  color: white;
+  border: 2px solid #4f772d;
+}
+
+.logoutBtn:hover {
+  background-color: #31572c;
+  border-color: #31572c;
+  transform: translateY(-2px);
+}
+
+
+/*-----------------------------------------*/
+/*             RESPONSIVENESS              */
+/*-----------------------------------------*/
+
+/* Tablet */
+@media (max-width: 900px) {
+  .sidebarNavMain li {
+    font-size: 0.95rem;
+    padding: 0.85rem 0.8rem;
+  }
+
+  .sidebarBtn {
+    font-size: 0.95rem;
+    padding: 0.8rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .sidebarNavMain li {
+    font-size: 0.92rem;
+    padding: 0.7rem 0.7rem;
+  }
+
+  .sidebarActions {
+    padding: 1.2rem;
+    gap: 10px;
+  }
+
+  .sidebarBtn {
+    font-size: 0.9rem;
+    padding: 0.7rem 0.9rem;
+  }
+}

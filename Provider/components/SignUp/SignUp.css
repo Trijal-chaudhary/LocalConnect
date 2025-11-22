@@ -1,0 +1,330 @@
+
+.bodySign {
+  /* margin-top: 75px; */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f4f7f6; /* Light grey page background */
+  /* margin: 0; */
+  padding: 2.5rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+.signup-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden; /* To contain the header */
+}
+
+.signup-header {
+  background-color: #4f772d; /* Your dark green */
+  color: white;
+  padding: 2.5rem 3rem;
+  text-align: center;
+}
+
+.signup-header h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 2.25rem;
+}
+
+.signup-header p {
+  margin: 0;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.signup-form {
+  padding: 3rem;
+}
+
+/* --- Stepper Navigation --- */
+.stepper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1.5rem;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: 0; /* Grow equally */
+  flex-grow: 1;
+  position: relative;
+}
+.subhead{
+  color: white;
+}
+.step-number {
+  height: 40px;
+  width: 40px;
+  background-color: #f4f7f6;
+  color: #999;
+  border: 2px solid #e0e0e0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.step-name {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #777;
+}
+
+/* Active/Current Step */
+.step.active .step-number {
+  background-color: #eafbe7; /* Lightest green */
+  color: #4f772d;
+  border-color: #4f772d;
+}
+
+.step.active .step-name {
+  color: #4f772d;
+  font-weight: 600;
+}
+
+/* Connecting Lines */
+.step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background-color: #e0e0e0;
+  transform: translateX(50%);
+  z-index: -1;
+}
+
+/* --- Form Sections --- */
+fieldset {
+  border: none;
+  padding: 0;
+  margin-bottom: 2.5rem;
+}
+
+fieldset:last-of-type {
+  margin-bottom: 1rem;
+}
+
+.signup-container p {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 2rem;
+  padding: 0;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+/* --- Form Elements --- */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.form-group label .optional {
+  font-weight: 400;
+  color: #888;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box; /* Crucial for width */
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #4f772d;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(79, 119, 45, 0.1);
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Grid for 2-column layouts */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+/* File Upload Styling */
+.file-upload-label {
+  display: block;
+  background-color: #f8f9fa;
+  border: 2px dashed #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.file-upload-label:hover {
+  border-color: #4f772d;
+  background-color: #f9fff8;
+}
+
+.file-upload-label span {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #555;
+}
+
+.file-upload-label span.small-text {
+  display: block;
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 0.25rem;
+}
+
+.form-group input[type="file"] {
+  display: none; /* Hide the ugly default input */
+}
+
+/* Checkbox Group Styling */
+.checkbox-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  background-color: #f8f9fa;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+}
+
+.checkbox-item input {
+  margin-right: 0.75rem;
+  width: 1.1em;
+  height: 1.1em;
+}
+
+/* Consent Box */
+.consent-box {
+  background-color: #fefce8; /* Light yellow */
+  border: 1px solid #fde047; /* Yellow border */
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.consent-box .form-group {
+  margin-bottom: 0;
+}
+
+.consent-box label {
+  display: flex;
+  align-items: flex-start;
+  font-weight: 500;
+  color: #713f12; /* Dark yellow/brown text */
+}
+
+.consent-box input[type="checkbox"] {
+ margin-top: 0.25rem;
+ margin-right: 0.75rem;
+ flex-shrink: 0;
+ width: 1.2em;
+ height: 1.2em;
+}
+
+/* --- Submit Button --- */
+.submit-btn {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  background-color: #4f772d;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 2rem;
+}
+
+.submit-btn:hover {
+  background-color: #31572c; /* Darker green */
+  box-shadow: 0 4px 15px rgba(79, 119, 45, 0.3);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  body {
+      padding: 0;
+  }
+  
+  .signup-container {
+      border-radius: 0;
+  }
+
+  .signup-form {
+      padding: 1.5rem;
+  }
+
+  .signup-header {
+      padding: 2rem 1.5rem;
+  }
+
+  .signup-header h1 {
+      font-size: 1.8rem;
+  }
+  
+  .signup-header p {
+      font-size: 1rem;
+  }
+  
+  .form-grid {
+      grid-template-columns: 1fr;
+  }
+
+  /* Hides the step names on mobile, just shows numbers */
+  .stepper {
+      padding-bottom: 1rem;
+      margin-bottom: 2rem;
+  }
+  .step-name {
+      display: none;
+  }
+  .step:not(:last-child)::after {
+      top: 19px;
+  }
+}

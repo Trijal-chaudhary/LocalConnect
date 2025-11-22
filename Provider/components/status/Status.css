@@ -1,0 +1,161 @@
+.OuterStatus {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  /* background-color: #f4f7f6; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* min-height: 100vh; */
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* The main container for the status tracker */
+.status-tracker {
+  display: flex;
+  align-items: flex-start; /* Aligns nodes at the top, labels below */
+  justify-content: space-between;
+  width: 100%;
+  max-width: 600px;
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* A single step (node + label) */
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  /* Each step is given equal space */
+  flex-basis: 0;
+  flex-grow: 1;
+  /* Default color for upcoming steps */
+  color: #b0b0b0;
+  position: relative;
+}
+
+/* The circle node */
+.node {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #e0e0e0; /* Default upcoming color */
+  border: 3px solid #e0e0e0;
+  transition: all 0.4s ease;
+  margin-bottom: 8px;
+  /* Stacking context for the pulse */
+  position: relative;
+  z-index: 2;
+}
+
+/* The text label below the node */
+.label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: color 0.4s ease;
+  white-space: nowrap; /* Prevents wrapping on small screens */
+}
+
+/* The connecting line */
+.connector {
+  flex-grow: 1;
+  height: 4px;
+  background-color: #e0e0e0; /* Default upcoming color */
+  /* Position it in the middle of the nodes */
+  margin-top: 13px; /* (24px node + 6px border) / 2 - (4px line / 2) = 13px */
+  transition: background-color 0.4s ease;
+  position: relative;
+  z-index: 1;
+}
+
+/* --- STATE STYLING --- */
+
+/* 1. Completed State */
+.step.complete .node {
+  background-color: #4f772d; /* Your theme's green color */
+  border-color: #4f772d;
+}
+
+.step.complete .label {
+  color: #333; /* Dark text for completed steps */
+}
+
+.connector.complete {
+  background-color: #4f772d; /* Green line for completed connectors */
+}
+
+/* 2. Active State (The one it's currently on) */
+.step.active .node {
+  background-color: #ffffff; /* White center */
+  border-color: #4f772d; /* Green border */
+}
+.step.active-red .node {
+  background-color: #ffffff; /* White center */
+  border-color: red; /* Green border */
+}
+
+.step.active .label {
+  color: #4f772d; /* Green text for the active step */
+}
+
+/* --- ANIMATION --- */
+
+/* This pseudo-element is the pulsing dot *inside* the active node */
+.step.active .node::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 14px;
+  height: 14px;
+  background-color: #4f772d;
+  border-radius: 50%;
+  
+  /* The pulse animation */
+  animation: pulse 1.75s infinite ease-in-out;
+}
+.step.active-red .node::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 14px;
+  height: 14px;
+  background-color: red;
+  border-radius: 50%;
+  
+  /* The pulse animation */
+  animation: pulse 1.75s infinite ease-in-out;
+}
+
+/* Keyframes for the pulsing animation */
+@keyframes pulse {
+  0% {
+      transform: translate(-50%, -50%) scale(0.7);
+      opacity: 0.7;
+  }
+  50% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+  }
+  100% {
+      transform: translate(-50%, -50%) scale(0.7);
+      opacity: 0.7;
+  }
+}
+
+/* Simple responsive adjustment for very small screens */
+@media (max-width: 480px) {
+  .status-tracker {
+      padding: 1.5rem 1rem;
+  }
+  .label {
+      font-size: 0.7rem;
+  }
+}

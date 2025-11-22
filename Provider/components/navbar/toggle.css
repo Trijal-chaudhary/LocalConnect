@@ -1,0 +1,67 @@
+.toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Poppins", sans-serif;
+  user-select: none;
+  margin-right: 20px;
+}
+
+.label {
+  font-size: 16px;
+  color: #999;
+  transition: color 0.3s ease;
+}
+.profile-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #d4af37;
+  cursor: pointer;
+
+}
+.profile-name {
+  color: #d4af37;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 0;
+}
+.label.active {
+  color: #222;
+  font-weight: 600;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  background-color: #ccc;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.Avl{
+  margin-right: 10px;
+}
+.toggle-switch.yes {
+  background-color: #4caf50;
+}
+
+.toggle-switch.no {
+  background-color: #e74c3c;
+}
+.toggle-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  background-color: white;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.toggle-switch.yes .toggle-thumb {
+  transform: translateX(30px);
+}
