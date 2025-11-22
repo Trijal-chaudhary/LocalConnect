@@ -2,7 +2,14 @@ import React from "react";
 import style from "./Navbar.module.css";
 import SideBar from "../sideBar/SideBar";
 import { useNavigate } from "react-router-dom";
-const Navbar = ({ isLogged, userInfo, LogOut, pincode, setRenderPin }) => {
+const Navbar = ({
+  isLogged,
+  userInfo,
+  LogOut,
+  pincode,
+  setRenderPin,
+  scrollToSection,
+}) => {
   const navigate = useNavigate();
   const sidebr = () => {
     const sb = document.getElementById("sid");
@@ -45,7 +52,7 @@ const Navbar = ({ isLogged, userInfo, LogOut, pincode, setRenderPin }) => {
         )}
 
         <ul className={style.navList}>
-          <li>Category</li>
+          <li onClick={() => scrollToSection("Catogrie")}>Category</li>
           <li>Become a Provider</li>
           <li>Help</li>
         </ul>

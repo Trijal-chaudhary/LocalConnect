@@ -223,6 +223,7 @@ const Home = () => {
         LogOut={LogOut}
         pincode={pincode}
         setRenderPin={setRenderPin}
+        scrollToSection={scrollToSection}
       />
       {renderPin && (
         <div className={styles.pincode}>
@@ -374,23 +375,28 @@ const Home = () => {
                 </div>
               </div>
             )}
-
-            <div className={styles.service}>
-              <h1>What service do you need today?</h1>
-              <div className={`${styles.cardContainer} ${styles.padBot}`}>
-                {serviceDetails.map((ele) => (
-                  <>
-                    <div
-                      className={styles.hidden}
-                      onClick={() => scrollToSection(ele.name)}
-                    >
-                      <img src={`assets/services/${ele.url}`} alt={ele.name} />
-                      <h4>{ele.name}</h4>
-                    </div>
-                  </>
-                ))}
+            <section id="catogrie">
+              <div className={styles.service}>
+                <h1>What service do you need today?</h1>
+                <div className={`${styles.cardContainer} ${styles.padBot}`}>
+                  {serviceDetails.map((ele) => (
+                    <>
+                      <div
+                        className={styles.hidden}
+                        onClick={() => scrollToSection(ele.name)}
+                      >
+                        <img
+                          src={`assets/services/${ele.url}`}
+                          alt={ele.name}
+                        />
+                        <h4>{ele.name}</h4>
+                      </div>
+                    </>
+                  ))}
+                </div>
               </div>
-            </div>
+            </section>
+
             <div className={styles.service}>
               <h1>Meet Your Local Professionals</h1>
               <div className={`${styles.cardContainer2} ${styles.preffCont}`}>
