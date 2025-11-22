@@ -95,14 +95,25 @@ export const previousProvider = async (id) => {
   });
   return response.json()
 }
-export const postReview = async (star, review, provider)=>{
+export const postReview = async (star, review, provider) => {
   const response = await fetch('http://localhost:3000/api/client/review', {
-    method : 'POST',
-    headers : {
-      "Content-Type" : "application/json",
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify({star, review, provider}),
+    body: JSON.stringify({ star, review, provider }),
     credentials: "include"
   })
 
+}
+export const postSearch = async (search) => {
+  const response = await fetch('http://localhost:3000/api/client/search', {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ search }),
+    credentials: "include"
+  })
+  return response.json()
 }

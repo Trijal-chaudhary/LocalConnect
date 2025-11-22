@@ -15,7 +15,7 @@ function App() {
           <Route path="/userDetails/:id" element={<ProviderDetails />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/search" element={<Search />} />
+          <Route path="/search/:ser" element={<Search />} />
         </Routes>
       </BrowserRouter>
     </>

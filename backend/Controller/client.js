@@ -141,5 +141,8 @@ exports.postReview = async (req, res, next) => {
 }
 exports.postSearch = async (req, res, next) => {
   console.log(req.body)
-  res.status(201).json({ message: "found" })
+  const provider = await providerDetails.find({ status: "Approved" }).sort({ avgStar: -1 });
+  const searchFor = provider.filter(ele => ele.details.primary_service === req.body.search.toLowerCase())
+  // console.log(searchFor)
+  res.status(201).json({ searching: searchFor })
 }

@@ -15,8 +15,10 @@ import "./auth.css";
 import CompleteConf from "../CompleteConf/CompleteConf";
 import RatingReview from "../RatingReview/RatingReview";
 import Chat from "../chat/Chat";
+import { useRef } from "react";
 // import { postReview } from "../../../backend/Controller/client";
 const Home = () => {
+  const searchRef = useRef();
   const navigate = useNavigate();
   const [renderPin, setRenderPin] = useState(false);
   const [currImg, setCurrImg] = useState(0);
@@ -128,6 +130,11 @@ const Home = () => {
     logOutClient().then(() => {
       setIsLogged(false);
     });
+  };
+  const searchClick = (e) => {
+    // e.preventDefault();
+    console.log(searchRef.current.value);
+    navigate(`search/${searchRef.current.value}`);
   };
   useEffect(() => {
     providerDetails(pincode).then((res) => {
@@ -241,8 +248,15 @@ const Home = () => {
             skilled professionals to your fingertips.
           </p>
           <div class={styles.searchBar}>
-            <input type="text" placeholder={`Search For ${placeHolder}`} />
-            <button>Search</button>
+            <input
+              type="text"
+              placeholder={`Search For ${placeHolder}`}
+              ref={searchRef}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") searchClick();
+              }}
+            />
+            <button onClick={searchClick}>Search</button>
           </div>
         </div>
       </div>
