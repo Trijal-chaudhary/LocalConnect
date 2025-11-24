@@ -40,6 +40,17 @@ export const postLoginClient = async (userName, password) => {
   })
   return response.json();
 }
+export const postVerifingOtp = async (otp, details) => {
+  const response = await fetch('http://localhost:3000/api/client/verification', {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ otp, details }),
+    credentials: "include"
+  })
+  return response.json();
+}
 export const isLoggedClient = async () => {
   const response = await fetch('http://localhost:3000/api/client/isLogged', {
     method: "POST",

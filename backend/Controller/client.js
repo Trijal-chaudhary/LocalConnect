@@ -4,6 +4,8 @@ const { default: transporter } = require('../middleware/nodemailer');
 const { default: verification } = require('../middleware/verification');
 const clientDetails = require('../models/ClientDetailsModel');
 const providerDetails = require('../models/providerDetailModel')
+const verificationDetails = require('../models/VerificationModel')
+
 
 
 exports.postProviderDetailsClient = async (req, res, next) => {
@@ -19,10 +21,26 @@ exports.postProviderDetailsClient = async (req, res, next) => {
   }
 }
 exports.postSignUpClient = async (req, res, next) => {
-  const details = await clientDetails({ details: req.body })
-  await details.save();
-  res.status(201)
+  // const details = await clientDetails({ details: req.body })
+  // await details.save();
+  // verificationDetails
+  const otp = Math.floor(1000 + Math.random() * 9000);
+  console.log(req.body)
+  const prevEmail = await verificationDetails.findOne({ email: req.body.email });
+  if (prevEmail) {
+    prevEmail.otp = otp;
+    prevEmail.markModified("otp");
+    await prevEmail.save();
+  }
+  else {
+    const veriDetails = await verificationDetails({ email: req.body.email, otp: otp })
+    await veriDetails.save();
+  }
+  verification(req.body.email, otp);
+  console.log(req.body.email)
+  res.status(201).json({ message: "yes" })
 }
+
 exports.postLogInClient = async (req, res, next) => {
   console.log(req.body);
   const details = await clientDetails.findOne({ 'details.username': req.body.userName, "details.password": req.body.password });
@@ -153,7 +171,13 @@ exports.postSearch = async (req, res, next) => {
 
 
 exports.postClientVerification = async (req, res, next) => {
-  console.log("check")
-  verification("hello", "yes")
-  res.status(201);
+  const prevEmail = await verificationDetails.findOne({ email: req.body.details.email });
+  if (prevEmail.otp === req.body.otp) {
+    const details = await clientDetails({ details: req.body.details })
+    await details.save();
+    res.status(201).json({ message: "match" });
+  } else {
+    res.status(201).json({ message: "notMatch" });
+  }
+
 }

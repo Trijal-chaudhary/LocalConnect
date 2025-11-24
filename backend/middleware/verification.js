@@ -1,12 +1,12 @@
 import transporter from "./nodemailer.js";
 
-const verification = async (email, content) => {
+const verification = async (email, otp) => {
   const info = await transporter.sendMail({
-    from: '"Maddison Foo Koch" <harshvardhanchaudhary27@gmail.com>',
-    to: "hirachaudhary846004@gmail.com",
-    subject: "Hello ✔",
+    from: '"LocalConnect" <harshvardhanchaudhary27@gmail.com>',
+    to: email,
+    subject: "OTP",
     text: "Hello harsh", // plain‑text body
-    html: "<b>Hello world?</b>", // HTML body
+    html: `<b>OTP : ${otp}</b>`, // HTML body
   });
   // info();
   console.log("Message sent:", info.messageId);

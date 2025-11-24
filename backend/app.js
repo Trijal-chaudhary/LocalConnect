@@ -90,7 +90,7 @@ app.use('/api/client/completed', postCompletedWorkClientRouter);
 app.use('/api/client/previousProvider', postPreviousProviderRouter);
 app.use('/api/client/review', postReviewRouter);
 app.use('/api/client/search', postSearchRouter)
-app.use('api/client/verification', postClientVerificationRouter)
+app.use('/api/client/verification', postClientVerificationRouter);
 PORT = 3000;
 mongoose.connect(DB_URL).then(() => {
   console.log("mongoose conected")

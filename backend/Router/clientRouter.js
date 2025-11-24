@@ -26,7 +26,7 @@ postCompletedWorkClientRouter.post('/', postCompletedWorkClient)
 postPreviousProviderRouter.post('/', postPreviousProvider)
 postReviewRouter.post('/', postReview)
 postSearchRouter.post('/', postSearch)
-postClientVerificationRouter.get('/', postClientVerification)
+postClientVerificationRouter.post('/', postClientVerification)
 
 
 exports.postProviderDetailsClientRouter = postProviderDetailsClientRouter;

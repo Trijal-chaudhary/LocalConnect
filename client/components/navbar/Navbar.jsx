@@ -85,7 +85,11 @@ const Navbar = ({
         </div>
       </div>
       <div className={`${style.sideBar} ${style.close}`} id="sid">
-        <SideBar isLogged={isLogged} LogOut={LogOut} name={userInfo.username} />
+        <SideBar
+          isLogged={isLogged}
+          LogOut={LogOut}
+          name={userInfo?.username}
+        />
       </div>
     </>
   );
