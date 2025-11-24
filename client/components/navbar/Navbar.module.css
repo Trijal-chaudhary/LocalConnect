@@ -61,10 +61,10 @@ html, body {
 
 /* Sidebar */
 .sideBar {
-  position: absolute;
-  top: 71px;
+  position: fixed;
+  top: 65px;
   left: 0;
-  height: calc(100vh - 71px);
+  height: calc(100vh - 65px);
   width: 260px;
   background-color: #fff;
   box-shadow: 3px 0 15px rgba(0, 0, 0, 0.1);

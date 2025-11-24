@@ -55,7 +55,7 @@ const Login = () => {
             Log In
           </button>
         </form>
-        <p>
+        <p className="signUpLog">
           dont Have an Account? <a href="/signup">Sign Up</a>
         </p>
       </div>

@@ -27,6 +27,24 @@
   text-align: center;
   border-bottom: 1px solid #f0f0f0;
 }
+.signUpLog {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #555;
+  margin-top: 1rem;
+  margin-bottom: 20px;
+}
+
+.signUpLog a {
+  color: #007bff;
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 4px;
+}
+
+.signUpLog a:hover {
+  text-decoration: underline;
+}
 
 .login-header h1 {
   margin: 0;
