@@ -2,7 +2,7 @@ const multer = require("multer");
 const upload = multer();
 
 const express = require('express');
-const { postProviderDetailsClient, postSignUpClient, postLogInClient, postIsLoggedClient, postLogoutClient, postBookClient, postCompletedWorkClient, postPreviousProvider, postReview, postSearch } = require('../Controller/client');
+const { postProviderDetailsClient, postSignUpClient, postLogInClient, postIsLoggedClient, postLogoutClient, postBookClient, postCompletedWorkClient, postPreviousProvider, postReview, postSearch, postClientVerification } = require('../Controller/client');
 const postProviderDetailsClientRouter = express.Router();
 const postSignUpClientRouter = express.Router();
 const postLogInClientRouter = express.Router();
@@ -13,6 +13,7 @@ const postCompletedWorkClientRouter = express.Router();
 const postPreviousProviderRouter = express.Router();
 const postReviewRouter = express.Router();
 const postSearchRouter = express.Router();
+const postClientVerificationRouter = express.Router();
 
 
 postProviderDetailsClientRouter.post('/', postProviderDetailsClient)
@@ -25,6 +26,7 @@ postCompletedWorkClientRouter.post('/', postCompletedWorkClient)
 postPreviousProviderRouter.post('/', postPreviousProvider)
 postReviewRouter.post('/', postReview)
 postSearchRouter.post('/', postSearch)
+postClientVerificationRouter.get('/', postClientVerification)
 
 
 exports.postProviderDetailsClientRouter = postProviderDetailsClientRouter;
@@ -37,3 +39,4 @@ exports.postCompletedWorkClientRouter = postCompletedWorkClientRouter;
 exports.postPreviousProviderRouter = postPreviousProviderRouter;
 exports.postReviewRouter = postReviewRouter;
 exports.postSearchRouter = postSearchRouter;
+exports.postClientVerificationRouter = postClientVerificationRouter

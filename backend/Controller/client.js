@@ -1,3 +1,7 @@
+// import verification from "../middleware/verification.js";
+
+const { default: transporter } = require('../middleware/nodemailer');
+const { default: verification } = require('../middleware/verification');
 const clientDetails = require('../models/ClientDetailsModel');
 const providerDetails = require('../models/providerDetailModel')
 
@@ -145,4 +149,11 @@ exports.postSearch = async (req, res, next) => {
   const searchFor = provider.filter(ele => ele.details.primary_service === req.body.search.toLowerCase())
   // console.log(searchFor)
   res.status(201).json({ searching: searchFor })
+}
+
+
+exports.postClientVerification = async (req, res, next) => {
+  console.log("check")
+  verification("hello", "yes")
+  res.status(201);
 }

@@ -9,7 +9,7 @@ const http = require('http')
 const { postSignUpprovRouter, postLogInProviderRouter, postIsLoggedRouter, postLogOutRouter, postVerfyOtpRouter, postCompleteProviderRouter, postPreviousClientProviderRouter } = require('./Router/providerRouter');
 const session = require('express-session');
 const { getLogInAdminRouter, postIsloggedAdminRouter, postLogOutAdminRouter, getPendingProfilesRouter, postProvederDetailsAdminRouter, postRejectedRouter, postApprovedRouter, getRejectedProfilesRouter, getApprovedProfilesRouter } = require('./Router/adminRouter');
-const { postProviderDetailsClientRouter, postSignUpClientRouter, postLogInClientRouter, postIsLoggedClientRouter, postLogOutClientRouter, postBookClientRouter, postCompletedWorkClientRouter, postPreviousProviderRouter, postReviewRouter, postSearchRouter } = require('./Router/clientRouter');
+const { postProviderDetailsClientRouter, postSignUpClientRouter, postLogInClientRouter, postIsLoggedClientRouter, postLogOutClientRouter, postBookClientRouter, postCompletedWorkClientRouter, postPreviousProviderRouter, postReviewRouter, postSearchRouter, postClientVerificationRouter } = require('./Router/clientRouter');
 const app = express();
 
 const DB_URL = "mongodb+srv://root:root@harsh.tcproj.mongodb.net/LocalConnect?retryWrites=true&w=majority&appName=harsh"
@@ -90,6 +90,7 @@ app.use('/api/client/completed', postCompletedWorkClientRouter);
 app.use('/api/client/previousProvider', postPreviousProviderRouter);
 app.use('/api/client/review', postReviewRouter);
 app.use('/api/client/search', postSearchRouter)
+app.use('api/client/verification', postClientVerificationRouter)
 PORT = 3000;
 mongoose.connect(DB_URL).then(() => {
   console.log("mongoose conected")
