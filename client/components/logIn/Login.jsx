@@ -1,11 +1,13 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
 import { postLoginClient } from "../../src/service/fetching";
+import UserName from "../UserName/UserName";
 const Login = () => {
   const userNameRef = useRef();
   const passwordRef = useRef();
   const navigate = useNavigate();
+  const [renderUserName, setRenderUserName] = useState(false);
 
   const submit = async (e) => {
     e.preventDefault();
@@ -21,45 +23,52 @@ const Login = () => {
     }
   };
   return (
-    <div className="OuterLogIn">
-      <div className="login-container">
-        <header className="login-header">
-          <h1>Log In</h1>
-        </header>
+    <>
+      {renderUserName && <UserName setRenderUserName={setRenderUserName} />}
 
-        <form className="login-form" onSubmit={submit}>
-          <div className="form-group">
-            <label htmlFor="username">Username</label>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              placeholder="Username"
-              ref={userNameRef}
-              required
-            />
-          </div>
+      <div className="OuterLogIn">
+        <div className="login-container">
+          <header className="login-header">
+            <h1>Log In</h1>
+          </header>
 
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              ref={passwordRef}
-              required
-            />
-          </div>
+          <form className="login-form" onSubmit={submit}>
+            <div className="form-group">
+              <label htmlFor="username">Username</label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Username"
+                ref={userNameRef}
+                required
+              />
+            </div>
 
-          <button type="submit" className="submit-btn">
-            Log In
-          </button>
-        </form>
-        <p className="signUpLog">
-          dont Have an Account? <a href="/signup">Sign Up</a>
-        </p>
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                ref={passwordRef}
+                required
+              />
+            </div>
+
+            <button type="submit" className="submit-btn">
+              Log In
+            </button>
+          </form>
+          <p className="ForgotPass" onClick={() => setRenderUserName(true)}>
+            Forgot your password? Click here to reset it.
+          </p>
+          <p className="signUpLog">
+            dont Have an Account? <a href="/signup">Sign Up</a>
+          </p>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -41,7 +41,19 @@
   text-decoration: none;
   margin-left: 4px;
 }
+.ForgotPass {
+  color: #2a4eff;  
+  font-size: 0.95rem;
+  margin-top: 10px;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.25s ease;
+}
 
+.ForgotPass:hover {
+  text-decoration: underline;
+  color: #1e3ad9;     
+}
 .signUpLog a:hover {
   text-decoration: underline;
 }
