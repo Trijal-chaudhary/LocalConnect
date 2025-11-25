@@ -51,6 +51,39 @@ export const postVerifingOtp = async (otp, details) => {
   })
   return response.json();
 }
+export const sendingOTPForReset = async (username) => {
+  const response = await fetch('http://localhost:3000/api/client/usernameReset', {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ username }),
+    credentials: "include"
+  })
+  return response.json();
+}
+export const OtpPasswordReset = async (otp, email) => {
+  const response = await fetch('http://localhost:3000/api/client/OTPReset', {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ otp, email }),
+    credentials: "include"
+  })
+  return response.json();
+}
+export const resetPassword = async (email, username, password) => {
+  const response = await fetch('http://localhost:3000/api/client/newPassword', {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email, username, password }),
+    credentials: "include"
+  })
+  return response.json();
+}
 export const isLoggedClient = async () => {
   const response = await fetch('http://localhost:3000/api/client/isLogged', {
     method: "POST",

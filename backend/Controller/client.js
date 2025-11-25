@@ -182,6 +182,48 @@ exports.postClientVerification = async (req, res, next) => {
 
 }
 exports.postClientReset = async (req, res, next) => {
+  const otp = Math.floor(1000 + Math.random() * 9000);
+  const details = await clientDetails.findOne({ "details.username": req.body.username })
+  console.log(details?.details?.email);
+  if (details?.details?.email) {
+    const prevEmail = await verificationDetails.findOne({ email: details.details.email });
+    if (prevEmail) {
+      prevEmail.otp = otp;
+      prevEmail.markModified("otp");
+      await prevEmail.save();
+    }
+    else {
+      const veriDetails = await verificationDetails({ email: details.details.email, otp: otp })
+      await veriDetails.save();
+    }
+    verification(details.details.email, otp);
+
+    res.status(201).json({ message: "foundSend", email: details.details.email })
+  } else {
+    res.status(201).json({ message: "notFound" })
+
+  }
+}
+exports.postOTPPasswordReset = async (req, res, next) => {
   console.log(req.body);
-  res.status(201).json({ message: "yes" })
+  const found = await verificationDetails.findOne({ email: req.body.email })
+  if (found.otp === req.body.otp) {
+    res.status(201).json({ message: "match" });
+  } else {
+    res.status(201).json({ message: "NotMatch" });
+  }
+
+}
+exports.postCreatePassword = async (req, res, next) => {
+  const details = await clientDetails.findOne({ "details.username": req.body.username, "details.email": req.body.email })
+  if (details) {
+    details.details.password = req.body.password;
+    details.markModified("details");
+    await details.save();
+    res.status(201).json({ message: "changed" })
+    return;
+  }
+  res.status(201).json({ message: "something wrong" })
+
+
 }
