@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-
+import "./VideoCapture.css";
 const Capture = () => {
   const videoRef = useRef(null);
   const mediaRecorderRef = useRef(null);
   const [recordedChunks, setRecordedChunks] = useState([]);
   const [stream, setStream] = useState(null);
-
+  const [second, setsecond] = useState(0);
+  const [running, setRunning] = useState(false);
   useEffect(() => {
     navigator.mediaDevices
       .getUserMedia({
@@ -25,13 +26,22 @@ const Capture = () => {
     recorder.ondataavailable = (e) => {
       if (e.data.size > 0) setRecordedChunks((prev) => [...prev, e.data]);
     };
-
+    setRunning(true);
     recorder.start();
     mediaRecorderRef.current = recorder;
   };
-
+  useEffect(() => {
+    let inertval;
+    if (running) {
+      inertval = setInterval(() => {
+        setsecond((prev) => prev + 1);
+      }, 1000);
+    }
+    return () => clearInterval(inertval);
+  }, [running]);
   const stopRecording = () => {
     mediaRecorderRef.current.stop();
+    setRunning(false);
   };
 
   const download = () => {
@@ -45,17 +55,24 @@ const Capture = () => {
 
   return (
     <>
-      <video ref={videoRef} autoPlay muted playsInline />
+      <video
+        ref={videoRef}
+        autoPlay
+        muted
+        playsInline
+        style={{ width: "100%", height: "auto" }}
+      />
 
-      <button type="button" onClick={startRecording}>
+      <button type="button" className="VideoButtons" onClick={startRecording}>
         Start
       </button>
-      <button type="button" onClick={stopRecording}>
+      <button type="button" className="VideoButtons" onClick={stopRecording}>
         Stop
       </button>
-      <button type="button" onClick={download}>
+      <button type="button" className="VideoButtons" onClick={download}>
         Download
       </button>
+      <b className="VideoButtons">Rec: {second}</b>
     </>
   );
 };

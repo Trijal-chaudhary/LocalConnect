@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./SignUp.css";
 import { postProviderDetail } from "../../src/services/fetching";
 import Status from "../status/Status";
@@ -8,6 +8,7 @@ import VideoCapture from "../capture/VideoCapture";
 import Capture from "../capture/Capture";
 const SignUp = () => {
   const navigate = useNavigate();
+  const [renderCap, setReanderCap] = useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -22,10 +23,17 @@ const SignUp = () => {
   };
   return (
     <>
-      <div className="OuterVideoCap">
-        <Capture />
-      </div>
       <div className="bodySign">
+        {renderCap && (
+          <>
+            <div className="mainOuterVideo">
+              <div className="OuterVideoCap">
+                <Capture />
+              </div>
+            </div>
+          </>
+        )}
+
         <div class="signup-container">
           <header class="signup-header">
             <h1>Become a LocalConnect Provider</h1>
@@ -301,6 +309,18 @@ const SignUp = () => {
                   capture="user"
                   required
                 />
+              </div>
+              <div class="form-group" onClick={() => setReanderCap(true)}>
+                <label
+                  for="live-video"
+                  class="file-upload-label"
+                  // style="background-color: #f0f4ff; border-color: #b3c5ff;"
+                >
+                  <span>Upload a Live Video</span>
+                  <span class="small-text">
+                    Saying your name and you want to join LocalConnect
+                  </span>
+                </label>
               </div>
 
               <div class="consent-box">
