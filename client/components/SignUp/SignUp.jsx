@@ -14,8 +14,12 @@ const SignUp = () => {
     const dataObj = Object.fromEntries(formData.entries());
     ClientSignup(formData).then(() => {
       // navigate("/login");
-      setDetails(dataObj);
-      setOtpRender(true);
+      // setDetails(dataObj);
+      postVerifingOtp(dataObj).then(() => {
+        navigate("./login");
+      });
+
+      // setOtpRender(true);
     });
   };
   const handelOTP = async (otp) => {

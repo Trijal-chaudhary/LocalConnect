@@ -171,13 +171,14 @@ exports.postSearch = async (req, res, next) => {
 
 exports.postClientVerification = async (req, res, next) => {
   const prevEmail = await verificationDetails.findOne({ email: req.body.details.email });
-  if (prevEmail.otp === req.body.otp) {
-    const details = await clientDetails({ details: req.body.details })
-    await details.save();
-    res.status(201).json({ message: "match" });
-  } else {
-    res.status(201).json({ message: "notMatch" });
-  }
+  // if (prevEmail.otp === req.body.otp) {
+  const details = await clientDetails({ details: req.body.details })
+  await details.save();
+  res.status(201).json({ message: "match" });
+  // } 
+  // else {
+  //   res.status(201).json({ message: "notMatch" });
+  // }
 
 }
 exports.postClientReset = async (req, res, next) => {
