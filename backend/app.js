@@ -1,10 +1,11 @@
+require("dotenv").config();
 const express = require('express');
 const { default: mongoose } = require('mongoose');
 const cors = require('cors')
 const { Server } = require('socket.io')
 const http = require('http')
 
-
+const DB_URL = process.env.DB_URL;
 
 const { postSignUpprovRouter, postLogInProviderRouter, postIsLoggedRouter, postLogOutRouter, postVerfyOtpRouter, postCompleteProviderRouter, postPreviousClientProviderRouter } = require('./Router/providerRouter');
 const session = require('express-session');
@@ -12,7 +13,7 @@ const { getLogInAdminRouter, postIsloggedAdminRouter, postLogOutAdminRouter, get
 const { postProviderDetailsClientRouter, postSignUpClientRouter, postLogInClientRouter, postIsLoggedClientRouter, postLogOutClientRouter, postBookClientRouter, postCompletedWorkClientRouter, postPreviousProviderRouter, postReviewRouter, postSearchRouter, postClientVerificationRouter, postClientResetRouter, postOTPPasswordResetRouter, postCreatePasswordRouter } = require('./Router/clientRouter');
 const app = express();
 
-const DB_URL = "mongodb+srv://root:root@harsh.tcproj.mongodb.net/LocalConnect?retryWrites=true&w=majority&appName=harsh"
+
 const MongoDBStore = require('connect-mongodb-session')(session);
 
 const store = new MongoDBStore({
@@ -94,7 +95,7 @@ app.use('/api/client/verification', postClientVerificationRouter);
 app.use('/api/client/usernameReset', postClientResetRouter)
 app.use('/api/client/OTPReset', postOTPPasswordResetRouter)
 app.use('/api/client/newPassword', postCreatePasswordRouter)
-PORT = 3000;
+const PORT = process.env.PORT || 3000;
 mongoose.connect(DB_URL).then(() => {
   console.log("mongoose conected")
   server.listen(PORT, () => {
