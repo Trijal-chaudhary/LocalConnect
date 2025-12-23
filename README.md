@@ -63,7 +63,7 @@ The platform consists of three distinct interfaces:
 
 ## 👥 Team
 
-**Group No.: 18** *Galgotias College of Engineering & Technology*
+*Galgotias College of Engineering & Technology*
 
 * **Harsh Vardhan Chaudhary** - [LinkedIn Profile](https://www.linkedin.com/in/harsh-vardhan-chaudhary-0b31b1367/)
 * **Harshit Mishra** - [LinkedIn Profile](https://www.linkedin.com/in/harshit-mishra-196781340/)
