@@ -12,7 +12,7 @@ const session = require('express-session');
 const { getLogInAdminRouter, postIsloggedAdminRouter, postLogOutAdminRouter, getPendingProfilesRouter, postProvederDetailsAdminRouter, postRejectedRouter, postApprovedRouter, getRejectedProfilesRouter, getApprovedProfilesRouter } = require('./Router/adminRouter');
 const { postProviderDetailsClientRouter, postSignUpClientRouter, postLogInClientRouter, postIsLoggedClientRouter, postLogOutClientRouter, postBookClientRouter, postCompletedWorkClientRouter, postPreviousProviderRouter, postReviewRouter, postSearchRouter, postClientVerificationRouter, postClientResetRouter, postOTPPasswordResetRouter, postCreatePasswordRouter } = require('./Router/clientRouter');
 const app = express();
-
+app.set("trust proxy", 1);
 
 const MongoDBStore = require('connect-mongodb-session')(session);
 
@@ -24,7 +24,8 @@ const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     origin: ["http://localhost:5173", "http://localhost:5174", "http://localhost:5175", "http://192.168.0.105:5173", "https://localconnect-p703.onrender.com"],
-    methods: ["GET", "POST"]
+    methods: ["GET", "POST"],
+    credentials: true
   }
 })
 
