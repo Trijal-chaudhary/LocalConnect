@@ -53,14 +53,15 @@ app.use(cors({
   credentials: true // 👈 allow sending cookies across origins
 }))
 app.use(session({
+  name: "localconnect.sid",
   secret: "HVC",
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
   store: store,
   cookie: {
     httpOnly: true,
-    secure: false,          // false because you're using http://
-    sameSite: "lax",        // ✅ works well on same-network, avoids "None" issue
+    secure: true,          // false because you're using http://
+    sameSite: "none",        // ✅ works well on same-network, avoids "None" issue
     maxAge: 1000 * 60 * 60 * 5
   }
 }))
