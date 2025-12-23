@@ -133,7 +133,7 @@ const Home = () => {
   };
   const searchClick = (e) => {
     // e.preventDefault();
-    console.log(searchRef.current.value);
+    // console.log(searchRef.current.value);
     navigate(`search/${searchRef.current.value}`);
   };
   useEffect(() => {
@@ -194,7 +194,7 @@ const Home = () => {
   }, [pincode]);
   const handelReview = async (star, review) => {
     const res = await postReview(star, review, reviewState);
-    console.log(res);
+    // console.log(res);
   };
   useEffect(() => {
     if (!bookedId || !Providers) return;

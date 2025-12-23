@@ -25,7 +25,6 @@ exports.postSignUpClient = async (req, res, next) => {
   // await details.save();
   // verificationDetails
   const otp = Math.floor(1000 + Math.random() * 9000);
-  console.log(req.body)
   const prevEmail = await verificationDetails.findOne({ email: req.body.email });
   if (prevEmail) {
     prevEmail.otp = otp;
@@ -37,7 +36,7 @@ exports.postSignUpClient = async (req, res, next) => {
     await veriDetails.save();
   }
   verification(req.body.email, otp);
-  console.log(req.body.email)
+  // console.log(req.body.email)
   res.status(201).json({ message: "yes" })
 }
 
@@ -86,7 +85,7 @@ exports.postBookClient = async (req, res, next) => {
   userDetails.markModified('otp');
   userDetails.markModified('providerId');
   await userDetails.save();
-  console.log(provDet, userDetails);
+  // console.log(provDet, userDetails);
   res.status(201).json({ message: "saved" })
 }
 exports.postCompletedWorkClient = async (req, res, next) => {
@@ -126,7 +125,7 @@ exports.postCompletedWorkClient = async (req, res, next) => {
 
 }
 exports.postPreviousProvider = async (req, res, next) => {
-  console.log(req.body);
+  // console.log(req.body);
   const userDetail = await providerDetails.findOne({ _id: req.body.id });
 
   res.status(201).json({ prev: userDetail });
@@ -157,12 +156,12 @@ exports.postReview = async (req, res, next) => {
   ProvDetails.markModified("PrevClient");
   ProvDetails.markModified("avgStar");
   ProvDetails.save();
-  console.log(req.body, ProvDetails, userDetail);
+  // console.log(req.body, ProvDetails, userDetail);
   res.status(201).json({ message: "added review" });
 
 }
 exports.postSearch = async (req, res, next) => {
-  console.log(req.body)
+  // console.log(req.body)
   const provider = await providerDetails.find({ status: "Approved" }).sort({ avgStar: -1 });
   const searchFor = provider.filter(ele => ele.details.primary_service === req.body.search.toLowerCase())
   // console.log(searchFor)
@@ -184,7 +183,7 @@ exports.postClientVerification = async (req, res, next) => {
 exports.postClientReset = async (req, res, next) => {
   const otp = Math.floor(1000 + Math.random() * 9000);
   const details = await clientDetails.findOne({ "details.username": req.body.username })
-  console.log(details?.details?.email);
+  // console.log(details?.details?.email);
   if (details?.details?.email) {
     const prevEmail = await verificationDetails.findOne({ email: details.details.email });
     if (prevEmail) {
@@ -205,7 +204,7 @@ exports.postClientReset = async (req, res, next) => {
   }
 }
 exports.postOTPPasswordReset = async (req, res, next) => {
-  console.log(req.body);
+  // console.log(req.body);
   const found = await verificationDetails.findOne({ email: req.body.email })
   if (found.otp === req.body.otp) {
     res.status(201).json({ message: "match" });
