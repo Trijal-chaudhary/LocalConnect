@@ -1,23 +1,22 @@
-import transporter from "./nodemailer.js";
+import { Resend } from "resend";
+
+const resend = new Resend("re_E7gwemJ7_PsNKTK2DgmYdPXHAu1X9MsRQ");
 
 const verification = async (email, otp) => {
   try {
-    const info = await transporter.sendMail({
-      from: '"LocalConnect" <harshvardhanchaudhary27@gmail.com>',
+    await resend.emails.send({
+      from: "LocalConnect <onboarding@resend.dev>",
       to: email,
-      subject: "OTP - LocalConnect",
-      text: `Your OTP is ${otp}`,
-      html: `<b>OTP : ${otp}</b>`,
-
+      subject: "Your OTP - LocalConnect",
+      html: `<h1>Your OTP: ${otp}</h1><p>Valid for 5 minutes</p>`,
     });
-    console.log("Message sent:", info.messageId);
+
+    console.log("OTP sent via Resend");
     return true;
   } catch (error) {
-    console.error("OTP EMAIL ERROR:", error);
+    console.error("Resend error:", error);
     return false;
   }
-
-  // info();
 }
 
 
