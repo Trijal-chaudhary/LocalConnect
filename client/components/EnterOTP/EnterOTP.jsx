@@ -8,7 +8,7 @@ const EnterOTP = ({ setRenderEnterOtp, emailState, usernameState }) => {
   const handelSubmit = async (e) => {
     e.preventDefault();
     const res = await OtpPasswordReset(otpRef.current.value, emailState);
-    console.log(res);
+    // console.log(res);
     if (res.message === "match") {
       setRenderChangepass(true);
     } else {

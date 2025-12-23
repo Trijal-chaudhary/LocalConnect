@@ -2,7 +2,6 @@ const providerDetails = require('../models/providerDetailModel')
 
 
 exports.postLogInAdmin = (req, res, next) => {
-  // console.log(req.body);
   const { username, password } = req.body;
   if (username === "Trijal05" && password === "846004") {
     req.session.isLoggedIn = true;
