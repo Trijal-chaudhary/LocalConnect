@@ -16,7 +16,7 @@ const SignUp = () => {
       // navigate("/login");
       // setDetails(dataObj);
       postVerifingOtp(dataObj).then(() => {
-        navigate("./login");
+        navigate("/login");
       });
 
       // setOtpRender(true);
