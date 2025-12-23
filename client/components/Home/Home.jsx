@@ -166,6 +166,7 @@ const Home = () => {
             setCarpenter((prev) => [...prev, ele]);
             break;
           case "tutor / education":
+          case "tutor":
             setEducation((prev) => [...prev, ele]);
             break;
           case "home baker":

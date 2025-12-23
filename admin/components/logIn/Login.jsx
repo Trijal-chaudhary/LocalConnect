@@ -34,7 +34,6 @@ const Login = () => {
               type="text"
               id="username"
               name="username"
-              placeholder="e.g., harish_plumber"
               ref={userNameRef}
               required
             />
