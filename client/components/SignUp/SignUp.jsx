@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./SignUp.css";
 import { ClientSignup, postVerifingOtp } from "../../src/service/fetching";
 import { useNavigate } from "react-router-dom";
-import Otp from "../Otp/Otp";
+import Otp from "../OTP/Otp";
 const SignUp = () => {
   const [OtpRender, setOtpRender] = useState(false);
   const [detailsState, setDetails] = useState();
