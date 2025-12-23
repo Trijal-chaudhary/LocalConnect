@@ -1,6 +1,6 @@
 
 export const providerDetails = async (pin) => {
-  const response = await fetch('http://localhost:3000/api/client/providerDetails', {
+  const response = await fetch('https://localconnect-backend-81u0.onrender.com/api/client/providerDetails', {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -11,7 +11,7 @@ export const providerDetails = async (pin) => {
   return response.json();
 }
 export const ProviderDetailsAdmin = async (id) => {
-  const response = await fetch('http://localhost:3000/api/admin/ProviderDetails', {
+  const response = await fetch('https://localconnect-backend-81u0.onrender.com/api/admin/ProviderDetails', {
     method: 'POST',
     headers: {
       "Content-Type": "application/json",
@@ -22,7 +22,7 @@ export const ProviderDetailsAdmin = async (id) => {
   return response.json()
 }
 export const ClientSignup = async (data) => {
-  const response = await fetch('http://localhost:3000/api/client/signup', {
+  const response = await fetch('https://localconnect-backend-81u0.onrender.com/api/client/signup', {
     method: "POST",
     body: data,
     credentials: "include"
@@ -30,7 +30,7 @@ export const ClientSignup = async (data) => {
   return response.json();
 }
 export const postLoginClient = async (userName, password) => {
-  const response = await fetch('http://localhost:3000/api/client/login', {
+  const response = await fetch('https://localconnect-backend-81u0.onrender.com/api/client/login', {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -41,7 +41,7 @@ export const postLoginClient = async (userName, password) => {
   return response.json();
 }
 export const postVerifingOtp = async (otp, details) => {
-  const response = await fetch('http://localhost:3000/api/client/verification', {
+  const response = await fetch('https://localconnect-backend-81u0.onrender.com/api/client/verification', {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -52,7 +52,7 @@ export const postVerifingOtp = async (otp, details) => {
   return response.json();
 }
 export const sendingOTPForReset = async (username) => {
-  const response = await fetch('http://localhost:3000/api/client/usernameReset', {
+  const response = await fetch('https://localconnect-backend-81u0.onrender.com/api/client/usernameReset', {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -63,7 +63,7 @@ export const sendingOTPForReset = async (username) => {
   return response.json();
 }
 export const OtpPasswordReset = async (otp, email) => {
-  const response = await fetch('http://localhost:3000/api/client/OTPReset', {
+  const response = await fetch('https://localconnect-backend-81u0.onrender.com/api/client/OTPReset', {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -74,7 +74,7 @@ export const OtpPasswordReset = async (otp, email) => {
   return response.json();
 }
 export const resetPassword = async (email, username, password) => {
-  const response = await fetch('http://localhost:3000/api/client/newPassword', {
+  const response = await fetch('https://localconnect-backend-81u0.onrender.com/api/client/newPassword', {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -85,7 +85,7 @@ export const resetPassword = async (email, username, password) => {
   return response.json();
 }
 export const isLoggedClient = async () => {
-  const response = await fetch('http://localhost:3000/api/client/isLogged', {
+  const response = await fetch('https://localconnect-backend-81u0.onrender.com/api/client/isLogged', {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -96,7 +96,7 @@ export const isLoggedClient = async () => {
   return response.json();
 }
 export const logOutClient = async () => {
-  const response = await fetch('http://localhost:3000/api/client/logout', {
+  const response = await fetch('https://localconnect-backend-81u0.onrender.com/api/client/logout', {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -107,7 +107,7 @@ export const logOutClient = async () => {
   return response.json();
 }
 export const bookClient = async (id) => {
-  const response = await fetch('http://localhost:3000/api/client/book', {
+  const response = await fetch('https://localconnect-backend-81u0.onrender.com/api/client/book', {
     method: 'POST',
     headers: {
       "Content-Type": "application/json",
@@ -118,7 +118,7 @@ export const bookClient = async (id) => {
   return response.json()
 }
 export const CompletedComfr = async () => {
-  const response = await fetch('http://localhost:3000/api/client/completed', {
+  const response = await fetch('https://localconnect-backend-81u0.onrender.com/api/client/completed', {
     method: 'POST',
     headers: {
       "Content-Type": "application/json",
@@ -129,7 +129,7 @@ export const CompletedComfr = async () => {
   return response.json()
 }
 export const previousProvider = async (id) => {
-  const response = await fetch('http://localhost:3000/api/client/previousProvider', {
+  const response = await fetch('https://localconnect-backend-81u0.onrender.com/api/client/previousProvider', {
     method: 'POST',
     headers: {
       "Content-Type": "application/json",
@@ -140,7 +140,7 @@ export const previousProvider = async (id) => {
   return response.json()
 }
 export const postReview = async (star, review, provider) => {
-  const response = await fetch('http://localhost:3000/api/client/review', {
+  const response = await fetch('https://localconnect-backend-81u0.onrender.com/api/client/review', {
     method: 'POST',
     headers: {
       "Content-Type": "application/json",
@@ -151,7 +151,7 @@ export const postReview = async (star, review, provider) => {
 
 }
 export const postSearch = async (search) => {
-  const response = await fetch('http://localhost:3000/api/client/search', {
+  const response = await fetch('https://localconnect-backend-81u0.onrender.com/api/client/search', {
     method: 'POST',
     headers: {
       "Content-Type": "application/json",
