@@ -40,13 +40,13 @@ export const postLoginClient = async (userName, password) => {
   })
   return response.json();
 }
-export const postVerifingOtp = async (otp, details) => {
+export const postVerifingOtp = async (details) => {
   const response = await fetch('https://localconnect-backend-81u0.onrender.com/api/client/verification', {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ otp, details }),
+    body: JSON.stringify({ details }),
     credentials: "include"
   })
   return response.json();
